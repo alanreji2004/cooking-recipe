@@ -35,9 +35,11 @@ const RecipeDetails = () => {
     fetchRecipeDetails();
     fetchComments();
   }, [id]);
+
   const handleHome =()=>{
     navigate('/');
   };
+  
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
 
