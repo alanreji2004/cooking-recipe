@@ -21,6 +21,8 @@ const RecipeDetails = () => {
       }
     };
 
+
+
     const fetchComments = async () => {
       try {
         const response = await axios.get(`http://localhost:8082/recipes/${id}/comments`);
@@ -33,7 +35,9 @@ const RecipeDetails = () => {
     fetchRecipeDetails();
     fetchComments();
   }, [id]);
-
+  const handleHome =()=>{
+    navigate('/');
+  };
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
 
@@ -63,6 +67,7 @@ const RecipeDetails = () => {
 
   return (
     <div className={styles.container}>
+      <button onClick={handleHome} className={styles.homeBtn}>Go to Home Page</button>
       <h1 className={styles.recipeTitle}>{recipe.title}</h1>
       <p><strong>Author:</strong> {recipe.author_name}</p>
       <p>{recipe.description}</p>
